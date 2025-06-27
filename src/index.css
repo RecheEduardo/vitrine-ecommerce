@@ -1,1 +1,16 @@
+/* fonte poppins utilizada no projeto */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  /* poppins como variavel css */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  body {
+    /* definindo como fonte global do projeto */
+    font-family: var(--font-poppins);
+  }
+}
