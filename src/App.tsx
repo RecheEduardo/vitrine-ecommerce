@@ -1,7 +1,9 @@
+import { FaReact } from "react-icons/fa"
+
 function App() {
   return (
     <>
-      <h1 className='text-3xl font-bold underline'>Tudo certo, funcionando!!</h1>
+      <h1 className='text-3xl font-bold underline'><FaReact size={90}/>Tudo certo, funcionando!!</h1>
 
       {/* teste temporario da paleta definida no root do tailwind */}
       <div className="bg-neutral-background p-8">
