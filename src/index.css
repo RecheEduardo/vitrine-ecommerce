@@ -6,6 +6,17 @@
 @theme {
   /* poppins como variavel css */
   --font-poppins: "Poppins", sans-serif;
+
+  /* paleta de cores */
+  --color-primary-black: #1D1C1A;
+  --color-primary-yellow: #f7ca11;
+  --color-primary-white: #FAFAFA;
+  --color-primary-blue: #3442b5;  
+  --color-primary-purple: #3d28bc;  
+  
+  --color-neutral-text: #3f3f40;
+  --color-neutral-border: #E0E0E0;
+  --color-neutral-background: #F5F5F5;
 }
 
 @layer base {
