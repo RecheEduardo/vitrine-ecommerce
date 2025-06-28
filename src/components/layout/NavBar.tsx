@@ -1,6 +1,6 @@
 export const NavBar = () => {
     const listaCategorias = [ // passagem direta dos setores por string
-      "Supermercdo",
+      "Supermercado",
       "Livros",
       "Moda",
       "Lançamentos",
