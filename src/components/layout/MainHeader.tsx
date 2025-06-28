@@ -17,7 +17,8 @@ export const MainHeader = () => {
                 type="text"
                 placeholder="O que você está buscando?"
                 className="w-full py-3 pl-6 pr-12 font-semibold bg-gray-100 rounded-lg
-                          text-gray-500 placeholder-gray-300"
+                          text-gray-500 placeholder-gray-300 focus:outline-none focus:ring-0
+                          focus:drop-shadow-md transition-all duration-300"
             />
             <a className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <FiSearch size={24} className="text-gray-300" />
