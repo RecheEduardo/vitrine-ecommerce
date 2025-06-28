@@ -8,7 +8,9 @@ const ColunaLinksFooter: React.FC<{ title: string; links: string[] }> = ({ title
     <ul className="space-y-2">
       {links.map((link, i) => (
         <li key={i}>
-          <a href="#" className="text-sm text-gray-400 hover:text-primary">
+          <a href="#" className="text-sm text-gray-400 hover:text-primary
+            hover:pl-3 transition-all duration-200"
+          >
             {link}
           </a>
         </li>
