@@ -1,7 +1,10 @@
 export const HeroSection = () => {
   return (
     <section className="relative w-full py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/heroSectionBackground.jpg')" }}>
-           
+      
+      {/* gradiente na imagem de fundo da hero */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/20 to-transparent" />
+      
       <div className="relative container mx-auto px-4 flex flex-col justify-center gap-4 items-start text-white">
         <h1 className="text-4xl md:text-5xl font-bold max-w-3xl">
           Venha conhecer nossas promoções
