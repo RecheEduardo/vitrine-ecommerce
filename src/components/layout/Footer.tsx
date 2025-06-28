@@ -67,6 +67,7 @@ export const Footer = () => {
             Feito com ♥ por <a href="https://linkedin.com/in/eduardorechemartins" 
                 className="font-bold italic text-dark-blue underline"
                 target="_blank"
+                rel="noopener noreferrer"
             >
               Eduardo Reche
             </a>
