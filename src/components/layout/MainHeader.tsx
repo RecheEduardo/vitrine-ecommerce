@@ -31,21 +31,21 @@ export const MainHeader = () => {
           <button className="p-2 rounded-full hover:bg-gray-100
            hover:text-gray-500 transition-all duration-100 cursor-pointer"
           >
-            <PiHeart size={28}/>
+            <PiHeart size={36}/>
           </button>
 
           {/* perfil */}
           <button className="p-2 rounded-full hover:bg-gray-100
            hover:text-gray-500 transition-all duration-100 cursor-pointer"
           >
-            <PiUserCircle size={28}/>
+            <PiUserCircle size={36}/>
           </button>
 
           {/* carrinho de compras */}
           <button className="p-2 rounded-full hover:bg-gray-100
            hover:text-gray-500 transition-all duration-100 cursor-pointer"
           >
-            <PiShoppingCart size={28}/>
+            <PiShoppingCart size={36}/>
           </button>
         </div>
       </div>
