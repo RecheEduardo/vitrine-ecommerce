@@ -14,12 +14,15 @@ function App() {
       <TopBar />
       <MainHeader />
       <NavBar/>
-      <HeroSection />
-      <CategoriasCarousel />
-      <ParceirosSection />
-      <MarcasCarousel />
-      <Newsletter />
-      <Footer />
+
+      <main className="flex-grow">
+        <HeroSection />
+        <CategoriasCarousel />
+        <ParceirosSection />
+        <MarcasCarousel />
+        <Newsletter />
+        <Footer />
+      </main>
     </div>
   )
 }
