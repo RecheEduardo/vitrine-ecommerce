@@ -20,7 +20,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isMobile = false }) => {
   if (isMobile) {
     return (
       <nav className="flex flex-col items-start p-4">
-        <a href="#" className="py-3 text-sm font-bold w-full text-dark-blue border-b mb-3">TODAS CATEGORIAS</a>
+        <a href="#" className="py-3 text-sm font-bold w-full text-dark-blue mb-3">TODAS CATEGORIAS</a>
         {listaCategorias.map((item) => (
           <a key={item} href="#" className="py-3 text-sm text-gray-400 hover:text-dark-blue">
             {item}
@@ -32,13 +32,13 @@ export const NavBar: React.FC<NavBarProps> = ({ isMobile = false }) => {
   
   return (
     <motion.nav
-      className="bg-white border-b border-gray-200 hidden lg:block" // oculta em telas menores que lg
+      className="bg-white border-b border-gray-100 hidden lg:block" // oculta em telas menores que lg
       {...containerMotionProps}
     >
       <div className="container mx-auto px-4 flex justify-center items-center">
         <div className="flex items-center gap-8">
           <motion.div
-            className="flex items-center font-semibold gap-8" // reduzido o gap para caber mais itens
+            className="flex items-center font-semibold gap-32" // reduzido o gap para caber mais itens
             {...fadeInUpItemMotionProps}
           >
             <motion.a

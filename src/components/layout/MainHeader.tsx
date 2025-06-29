@@ -11,7 +11,7 @@ export const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white sticky top-0 z-50">
       <motion.div 
         className="container mx-auto p-4 flex justify-between items-center border-b border-gray-100"
         {...containerMotionProps}
@@ -75,9 +75,15 @@ export const MainHeader = () => {
         </motion.div>
       </motion.div>
 
+      {/* NavBar para desktop */}
+      <div className="md:hidden lg:block">
+        <NavBar />
+      </div>
+
+      
       {/* menu Mobile */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg">
+        <div className="lg:hidden bg-white">
           <NavBar isMobile={true} />
         </div>
       )}
