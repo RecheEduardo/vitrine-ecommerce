@@ -22,7 +22,7 @@ function App() {
         {/* <SliderProdutos title="Produtos relacionados" /> */}
         <ParceirosSection />
         {/* <SliderProdutos title="Produtos relacionados" /> */}
-        {/* <MarcasCarousel /> */}
+        <MarcasCarousel />
         {/* <SliderProdutos title="Produtos relacionados" /> */}
         {/* <Newsletter /> */}
       </main>
