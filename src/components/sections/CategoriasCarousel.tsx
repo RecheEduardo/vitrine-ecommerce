@@ -34,14 +34,15 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ nome, icone, ativo }) => (
    hover:scale-90 transition-all duration-200"
   >
     {/* inserção de classes condicional a partir do boolean de ativo no tipo criado */}
+    {/* tamanho dos ícones ajustado para telas menores */}
     <div
-      className={`w-36 h-36 flex items-center justify-center rounded-lg 
+      className={`w-28 h-28 md:w-36 md:h-36 flex items-center justify-center rounded-lg 
       shadow-lg ${ativo ? 'text-dark-blue' : 'text-gray-400'}`}
     >
       {icone}
     </div>
 
-    <span className={`text-sm ${ativo ? 'text-dark-blue font-extrabold' : 'text-gray-400 font-medium'}`}>
+    <span className={`text-sm text-center ${ativo ? 'text-dark-blue font-extrabold' : 'text-gray-400 font-medium'}`}>
       {nome}
     </span>
   </div>
@@ -50,8 +51,10 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ nome, icone, ativo }) => (
 export const CategoriasCarousel = () => {
   return (
       <section className="py-12 bg-white">
-          <div className="container mx-auto px-4">
-              <motion.div className="flex gap-12 justify-center overflow-x-auto pb-4 -mb-4" {...containerMotionProps}>
+          <div className="container mx-auto px-2 md:px-4">
+              {/* overflow-x-auto no container para permitir rolagem em telas pequenas */}
+              {/* em telas 'lg', o conteudo fica centralizado */}
+              <motion.div className="flex gap-6 lg:gap-12 justify-start lg:justify-center overflow-x-auto pb-4 -mb-4" {...containerMotionProps}>
                   {categorias.map((categoria) => ( // map renderizando os objetos como props
                     <motion.div 
                       key={categoria.nome}
