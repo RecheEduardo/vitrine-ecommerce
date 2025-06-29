@@ -76,7 +76,7 @@ export const MainHeader = () => {
       </motion.div>
 
       {/* NavBar para desktop */}
-      <div className="md:hidden lg:block">
+      <div className="sm:hidden md:hidden lg:block">
         <NavBar />
       </div>
 
