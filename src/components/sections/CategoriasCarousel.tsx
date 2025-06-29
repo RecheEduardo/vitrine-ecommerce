@@ -8,6 +8,10 @@ import { IoFitness } from "react-icons/io5";
 // importando para poder utilizar um componente react como type
 import type { ReactNode } from "react"
 
+// animação dinamica
+import { motion } from 'framer-motion';
+import { containerMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
+
 const categorias = [ // array de categorias para renderização dinamica
   {nome: 'Tecnologia',icone: <LuMonitorSmartphone size={65} />,ativo: true},
   {nome: 'Supermercado',icone: <IoStorefrontOutline size={65}/>,ativo: false},
@@ -47,16 +51,20 @@ export const CategoriasCarousel = () => {
   return (
       <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
-              <div className="flex gap-12 justify-center overflow-x-auto pb-4 -mb-4">
+              <motion.div className="flex gap-12 justify-center overflow-x-auto pb-4 -mb-4" {...containerMotionProps}>
                   {categorias.map((categoria) => ( // map renderizando os objetos como props
+                    <motion.div 
+                      key={categoria.nome}
+                      {...popInItemMotionProps} 
+                    >  
                       <CategoryItem
-                          key={categoria.nome}
                           nome={categoria.nome}
                           icone={categoria.icone}
                           ativo={categoria.ativo}
                       />
+                    </motion.div>
                   ))}
-              </div>
+              </motion.div>
           </div>
       </section>
   );
