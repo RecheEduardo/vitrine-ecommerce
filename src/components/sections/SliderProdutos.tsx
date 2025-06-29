@@ -15,6 +15,10 @@ import { useProducts } from '../../hooks/useProducts';
 // icones dos chevron's (setas) dos sliders
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+// animação dinamica
+import { motion } from 'framer-motion';
+import { containerMotionProps, fadeInUpItemMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
+
 export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
@@ -26,25 +30,28 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   if (error) return <div className="text-center py-12 text-red-500">Erro ao carregar produtos: {error}</div>;
 
   return (
-    <section className="py-12">
+    <motion.section className="py-12" {...containerMotionProps}>
       <div className="container mx-auto py-4">
 
         {/* titulo customizavel do slider */}
-        <div className="flex items-center gap-12">
+        <motion.div className="flex items-center gap-12" {...popInItemMotionProps} viewport={{ once: true, amount: 0.4 }}>
             <div className="flex-1 h-px bg-gray-200"></div>
             <span className="text-4xl font-bold text-dark-blue text-center">{title}</span>
             <div className="flex-1 h-px bg-gray-200"></div>
-        </div>
+        </motion.div>
 
         {/* menu de categorias de produtos */}
-        <div className="flex justify-between gap-6 my-8 px-12 text-lg text-gray-400">
+        <motion.div 
+          className="flex justify-between gap-6 my-8 px-12 text-lg text-gray-400"
+          {...fadeInUpItemMotionProps}
+        >
           <a href="#" className="text-primary font-bold border-b-2 border-primary pb-1">Celular</a>
           <a href="#" className="hover:text-primary">Acessórios</a>
           <a href="#" className="hover:text-primary">Tablets</a>
           <a href="#" className="hover:text-primary">Notebooks</a>
           <a href="#" className="hover:text-primary">TVs</a>
           <a href="#" className="hover:text-primary">Ver todos</a>
-        </div>
+        </motion.div>
         
         {/* slider de produtos iterando sobre o JSON */}
         <div className="relative">
@@ -75,7 +82,9 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           >
             {products && products.map((product) => (  // renderiza só se os produtos forem carregados
               <SwiperSlide key={product.productName} className="h-auto pb-6 px-3">
-                <CardProduto product={product} />
+                <motion.div {...popInItemMotionProps}>  
+                  <CardProduto product={product} />
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -97,6 +106,6 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 };
