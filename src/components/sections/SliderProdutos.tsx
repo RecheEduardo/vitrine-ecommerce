@@ -1,18 +1,30 @@
 import { useRef } from 'react';
 
+// componente do card de cada produto
+import { CardProduto } from '../ui/CardProduto';
+
 // elementos da lib swiper para sliders modernos
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules'; // importando o modulo de navegacao
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// icones
+// hook que chama a api do JSON de produtos
+import { useProducts } from '../../hooks/useProducts';
+
+// icones dos chevron's (setas) dos sliders
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   
+  const { products, loading, error } = useProducts();
+
+  // loading & error handling do hook feito para o fetch do JSON de produtos
+  if (loading) return <div className="text-center py-12">Carregando produtos...</div>;
+  if (error) return <div className="text-center py-12 text-red-500">Erro ao carregar produtos: {error}</div>;
+
   return (
     <section className="py-12">
       <div className="container mx-auto py-4">
@@ -30,14 +42,14 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           <a href="#" className="hover:text-primary">TVs</a>
           <a href="#" className="hover:text-primary">Ver todos</a>
         </div>
-
+        
+        {/* slider de produtos iterando sobre o JSON */}
         <div className="relative">
           <Swiper
             modules={[Navigation]}
             spaceBetween={16}
             slidesPerView={4}
-            // referencia os elementos puxando do hook useRef
-            navigation={{
+            navigation={{ 
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
             }}
@@ -48,9 +60,9 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
               swiper.params.navigation.nextEl = navigationNextRef.current;
             }}
           >
-            {[...Array(8)].map((_, i) => (
-              <SwiperSlide key={i} className="h-auto pb-6 px-3">
-                <div className="bg-white rounded-lg p-4 h-96 drop-shadow-xl" />
+            {products && products.map((product) => (  // renderiza só se os produtos forem carregados
+              <SwiperSlide key={product.productName} className="h-auto pb-6 px-3">
+                <CardProduto product={product} />
               </SwiperSlide>
             ))}
           </Swiper>
