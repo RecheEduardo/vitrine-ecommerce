@@ -1,6 +1,8 @@
 const IconeMarca = () => ( // componente iterado no carrossel 
   <div className="w-64 h-64 flex-shrink-0 bg-white border-0 rounded-full 
-    flex items-center justify-center drop-shadow-xl">
+    flex items-center justify-center drop-shadow-xl hover:drop-shadow-2xl
+    transition-all duration-300 hover:cursor-pointer hover:scale-90"
+  >
     {/* usando asset do layout figma da logo da econverse */}
     <img src="/siteLogo.png" alt="Brand Logo" className="h-12" />
   </div>
