@@ -7,7 +7,6 @@ import { CategoriasCarousel } from "./components/sections/CategoriasCarousel"
 import { Newsletter } from "./components/sections/Newsletter"
 import { MarcasCarousel } from "./components/sections/MarcasCarousel"
 import { ParceirosSection } from "./components/sections/ParceirosSection"
-import { CardProduto } from "./components/ui/CardProduto"
 
 function App() {
   return (
@@ -20,9 +19,6 @@ function App() {
         <HeroSection />
         <CategoriasCarousel />
         <ParceirosSection />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
         <MarcasCarousel />
         <Newsletter />
         <Footer />
