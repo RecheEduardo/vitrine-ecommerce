@@ -38,6 +38,36 @@ export const fadeInUpVariants: Variants = {
   },
 };
 
+// efeito de fade in para baixo
+export const fadeInDownVariants: Variants = {
+  hidden: { opacity: 0, y: -40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 150,
+      damping: 20,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -40,
+    transition: {
+      type: 'spring',
+      stiffness: 150,
+      damping: 20,
+    }
+  }
+};
+
+// efeito de fade para o overlay
+export const overlayVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 }
+};
+
 // props reutilizáveis para o container
 export const containerMotionProps: MotionProps = {
   initial: 'hidden',
