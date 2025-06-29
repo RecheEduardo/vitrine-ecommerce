@@ -26,7 +26,7 @@ export const MarcasCarousel = () => {
 
         <motion.div 
           className="flex justify-start md:justify-center gap-12 pb-8 -mb-4
-          px-12 overflow-x-auto md:overflow-hidden" 
+          px-12 overflow-x-auto 2xl:overflow-hidden" 
           {...containerMotionProps}
         >
           {/* mapeando um array (ingessado) para simular 5 logos de marca */}

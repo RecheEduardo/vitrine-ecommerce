@@ -38,7 +38,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isMobile = false }) => {
       <div className="container mx-auto flex justify-center items-center">
         <div className="flex items-center gap-8">
           <motion.div
-            className="flex items-center font-semibold xl:gap-32 lg:gap-12" // reduzido o gap para caber mais itens
+            className="flex items-center font-semibold gap-8 2xl:gap-32" // reduzido o gap para caber mais itens
             {...fadeInUpItemMotionProps}
           >
             <motion.a
