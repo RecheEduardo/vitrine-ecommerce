@@ -10,7 +10,7 @@ export const containerVariants: Variants = {
   },
 };
 
-// item: efeito pop-in com spring
+// efeito pop-in com spring
 export const popInVariants: Variants = {
   hidden: { scale: 0, opacity: 0 },
   visible: {
@@ -19,10 +19,24 @@ export const popInVariants: Variants = {
     transition: {
       type: 'spring',
       stiffness: 260,
-      damping: 20,
+      damping: 18,
     },
   },
 };
+
+// efeito de fade in para cima com spring
+export const fadeInUpVariants: Variants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 150,
+        damping: 30,
+      },
+    },
+  };
 
 // props reutilizáveis para o container
 export const containerMotionProps: MotionProps = {
@@ -33,6 +47,10 @@ export const containerMotionProps: MotionProps = {
 };
 
 // props reutilizáveis para cada item
-export const itemMotionProps: MotionProps = {
+export const popInItemMotionProps: MotionProps = {
   variants: popInVariants,
+};
+
+export const fadeInUpItemMotionProps: MotionProps = {
+  variants: fadeInUpVariants,
 };
