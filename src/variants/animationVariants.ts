@@ -42,7 +42,7 @@ export const fadeInUpVariants: Variants = {
 export const containerMotionProps: MotionProps = {
   initial: 'hidden',
   whileInView: 'visible',
-  viewport: { once: true, amount: 0.5 },
+  viewport: { once: true, amount: 0.4 },
   variants: containerVariants,
 };
 
