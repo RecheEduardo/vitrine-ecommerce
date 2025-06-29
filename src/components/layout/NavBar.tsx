@@ -19,14 +19,25 @@ export const NavBar: React.FC<NavBarProps> = ({ isMobile = false }) => {
   // renderização para mobile
   if (isMobile) {
     return (
-      <nav className="flex flex-col items-start p-4">
-        <a href="#" className="py-3 text-sm font-bold w-full text-tertiary mb-3 border-b border-tertiary">TODAS CATEGORIAS</a>
+      <motion.nav className="flex flex-col items-start p-4" {...containerMotionProps}>
+
+        <motion.a href="#" 
+          className="py-3 text-sm font-bold w-full text-tertiary mb-3 border-b border-tertiary"
+          {...fadeInUpItemMotionProps}
+        >
+            TODAS CATEGORIAS
+        </motion.a>
+
         {listaCategorias.map((item) => (
-          <a key={item} href="#" className="py-3 text-sm text-gray-400 hover:text-tertiary">
-            {item}
-          </a>
+          <motion.a key={item} 
+            href="#" 
+            className="py-3 text-sm font-semibold text-gray-300 hover:text-tertiary"
+            {...fadeInUpItemMotionProps}
+          >
+            • {item}
+          </motion.a>
         ))}
-      </nav>
+      </motion.nav>
     );
   }
   
