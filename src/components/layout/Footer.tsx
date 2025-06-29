@@ -2,7 +2,7 @@ import { FiFacebook, FiLinkedin, FiInstagram  } from "react-icons/fi";
 
 // componente feito para indexar diferentes listas no footer dinamicamente
 const ColunaLinksFooter: React.FC<{ title: string; links: string[] }> = ({ title, links }) => (
-  <div>
+  <div className="pb-5 md:pb-0 border-b md:border-0 border-gray-200">
     <h4 className="font-bold text-gray-400 mb-4">{title}</h4>
     
     <ul className="space-y-2">
@@ -30,17 +30,17 @@ export const Footer = () => {
       
       {/* footer principal */}
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col items-center md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-4">
           
           {/* Coluna da logo e links de midia social */}
-          <div className="space-y-7 md:w-1/3">
-            <img src="/siteLogo.png" alt="Econverse" className="h-14" />
+          <div className="space-y-7 md:w-1/3 text-center md:text-left">
+            <img src="/siteLogo.png" alt="Econverse" className="h-14 mx-auto md:mx-0" />
             
-            <p className="text-sm text-gray-400 max-w-sm">
+            <p className="text-sm text-gray-400 max-w-sm mx-auto md:mx-0">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
 
-            <div className="flex gap-5">
+            <div className="flex gap-5 justify-center md:justify-start">
               <a href="#" className="text-gray-400 hover:text-primary"><FiInstagram size={28} /></a>
               <a href="#" className="text-gray-400 hover:text-primary"><FiFacebook size={28}/></a>
               <a href="#" className="text-gray-400 hover:text-primary"><FiLinkedin size={28} /></a>
@@ -48,10 +48,10 @@ export const Footer = () => {
           </div>
 
           {/* linha separando logo das colunas */}
-          <div className="hidden md:block w-[2px] bg-gray-200 self-stretch mr-15" />
+          <div className="hidden md:block w-[2px] bg-gray-200 self-stretch mx-8 lg:mx-15" />
 
           {/* coluna de links e seções do footer */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 flex-1 sm:text-left">
             <ColunaLinksFooter title="Institucional" links={aboutLinks} />
             <ColunaLinksFooter title="Ajuda" links={supportLinks} />
             <ColunaLinksFooter title="Termos" links={servicesLinks}/>

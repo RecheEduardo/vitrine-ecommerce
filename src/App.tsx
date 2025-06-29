@@ -27,7 +27,7 @@ function App() {
         <Newsletter />
       </main>
       
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
