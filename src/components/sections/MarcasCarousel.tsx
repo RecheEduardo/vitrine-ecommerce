@@ -1,3 +1,7 @@
+// animação dinamica
+import { motion } from 'framer-motion';
+import { containerMotionProps, fadeInUpItemMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
+
 const IconeMarca = () => ( // componente iterado no carrossel 
   <div className="w-64 h-64 flex-shrink-0 bg-white border-0 rounded-full 
     flex items-center justify-center drop-shadow-xl hover:drop-shadow-2xl
@@ -11,18 +15,21 @@ const IconeMarca = () => ( // componente iterado no carrossel
 export const MarcasCarousel = () => {
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
+      <motion.div className="container mx-auto px-4" {...containerMotionProps}>
 
-        <h2 className="text-4xl font-bold text-dark-blue text-center mb-8">Navegue por marcas</h2>
+        <motion.h2 
+          className="text-4xl font-bold text-dark-blue text-center mb-8"
+          {...popInItemMotionProps}
+        >
+          Navegue por marcas
+        </motion.h2>
+
+        <motion.div className="flex justify-center gap-12 pb-8 -mb-4 px-12" {...containerMotionProps}>
+          {/* mapeando um array (ingessado) para simular 5 logos de marca */}
+          {[...Array(5)].map((_, i) => <motion.div {...popInItemMotionProps}><IconeMarca key={i} /></motion.div>) /* componentizando icones de marcas */}
+        </motion.div>
         
-        <div className="relative">
-          <div className="flex justify-center gap-12 pb-8 -mb-4 px-12">
-            {/* mapeando um array (ingessado) para simular 5 logos de marca */}
-            {[...Array(5)].map((_, i) =>  <IconeMarca key={i} />) /* componentizando icones de marcas */}
-          </div>
-        </div>
-        
-      </div>
+      </motion.div>
     </section>
   );
 };
