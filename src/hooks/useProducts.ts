@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import type { Produto } from '../types/produto';
 
+// usando o caminho do proxy, para o CORS
+// abordagem explicada no arquivo vite.config.ts
 const API_URL = '/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
 
 export const useProducts = () => {
-  // utiliza como tipo um array de produtos, definido em types/
+  
+  // assegura que a resposta do JSON é realmente um array de produtos
   const [products, setProducts] = useState<Produto[]>();
+
+  // handling de carregamento e de erro com os blocos assincronos
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,16 +25,24 @@ export const useProducts = () => {
 
         const data = await response.json();
         setProducts(data.products);
+      
       } catch (err) {
-        // Tratamento de erro ainda genérico
-        setError('Ocorreu um erro ao buscar os produtos.');
-        console.error(err);
+
+        if (err instanceof Error) {
+          setError(err.message);
+        } else { // erro externo ou indefinido
+          setError('Um erro desconhecido ocorreu!');
+        }
+
+      } finally { // bloco utilizado com condicional para futuros loaders
+        setLoading(false);
       }
-      setLoading(false); // Será movido para o finally
     };
 
     fetchProducts();
-  }, []); // array vazio garante que o fetch ocorra apenas uma vez
+  }, []); 
+  // a condicao do useEffect é [] para garantir que a chamada  
+  // aconteca apenas na renderização do site  
   
   return { products, loading, error };
-};
+}
