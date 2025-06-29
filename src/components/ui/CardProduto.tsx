@@ -11,7 +11,7 @@ export const CardProduto: React.FC<CardProdutoProps> = ({ product }) => {
   return (
     <div className="bg-white border-0 rounded-lg p-4 flex flex-col h-full drop-shadow-xl hover:shadow-3xl transition-shadow">
       
-      <img src={product.photo} alt={product.productName} className="w-full h-48 object-contain mx-auto" />
+      <img src={product.photo} alt={product.productName} className="w-full h-72 object-contain mx-auto" />
       
       <div className="flex-grow mt-4 flex flex-col">
         {/* nome */}

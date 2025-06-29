@@ -19,11 +19,11 @@ function App() {
       <main className="flex-grow">
         <HeroSection />
         <CategoriasCarousel />
-        {/* <SliderProdutos title="Produtos relacionados" /> */}
+        <SliderProdutos title="Produtos relacionados" />
         <ParceirosSection />
-        {/* <SliderProdutos title="Produtos relacionados" /> */}
+        <SliderProdutos title="Produtos relacionados" />
         <MarcasCarousel />
-        {/* <SliderProdutos title="Produtos relacionados" /> */}
+        <SliderProdutos title="Produtos relacionados" />
         <Newsletter />
       </main>
       
