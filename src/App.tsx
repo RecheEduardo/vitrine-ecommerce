@@ -6,6 +6,7 @@ import { HeroSection } from "./components/sections/HeroSection"
 import { CategoriasCarousel } from "./components/sections/CategoriasCarousel"
 import { Newsletter } from "./components/sections/Newsletter"
 import { MarcasCarousel } from "./components/sections/MarcasCarousel"
+import { ParceirosSection } from "./components/sections/ParceirosSection"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <NavBar/>
       <HeroSection />
       <CategoriasCarousel />
+      <ParceirosSection />
       <MarcasCarousel />
       <Newsletter />
       <Footer />

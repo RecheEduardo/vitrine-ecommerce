@@ -5,7 +5,7 @@ const ParceiroCard = () => (
     bg-center hover:scale-95 transition-all"
   >
     {/* estilo de fundo escuro para o background */}
-    <div className="absolute inset-0" /> 
+    <div className="absolute inset-0 bg-black/30" /> 
 
     <div className="relative h-full flex flex-col justify-end gap-5 p-12 text-white">
       
