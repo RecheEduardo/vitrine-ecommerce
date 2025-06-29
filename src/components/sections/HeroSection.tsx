@@ -1,3 +1,7 @@
+// animação dinamica
+import { motion } from 'framer-motion';
+import { containerMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
+
 export const HeroSection = () => {
   return (
     <section className="relative w-full py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/heroSectionBackground.jpg')" }}>
@@ -5,19 +9,28 @@ export const HeroSection = () => {
       {/* gradiente na imagem de fundo da hero */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/20 to-transparent" />
       
-      <div className="relative container mx-auto px-4 flex flex-col justify-center gap-4 items-start text-white">
-        <h1 className="text-4xl md:text-5xl font-bold max-w-3xl">
+      <motion.div 
+        className="relative container mx-auto px-4 flex flex-col justify-center gap-4 items-start text-white"
+        {...containerMotionProps}
+      >
+        <motion.h1 className="text-4xl md:text-5xl font-bold max-w-3xl" {...popInItemMotionProps}>
           Venha conhecer nossas promoções
-        </h1>
+        </motion.h1>
         
-        <p className="text-4xl mt-4">
+        <motion.p className="text-4xl mt-4" {...popInItemMotionProps}>
           <span className="text-secondary font-semibold">50% Off</span> nos produtos
-        </p>
+        </motion.p>
         
-        <a href="#" className="mt-10 bg-secondary text-black font-bold py-4 px-16 rounded-md hover:bg-yellow-300 transition-colors">
+        <motion.a 
+          href="#" 
+          className="mt-10 bg-secondary text-black font-bold py-4 
+          px-16 rounded-md hover:bg-yellow-300 transition-colors"
+          {...popInItemMotionProps}
+        >
           Ver produto
-        </a>
-      </div>
+        </motion.a>
+
+      </motion.div>
     </section>
   );
 };
