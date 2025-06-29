@@ -10,10 +10,21 @@ export const Newsletter = () => {
           </p>
         </div>
         
-        {/* Formulário a ser implementado */}
-        <div>
-        </div>
+        <form className="max-w-2xl flex items-start gap-4">
+          {/* email */}
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            className="p-3 bg-white rounded-lg text-gray-500 focus:outline-0"
+          />
 
+          {/* botão de inscriçao */}
+          <a href="#" type="submit" className="bg-secondary text-black border font-bold
+             py-3 px-12 rounded-lg hover:bg-yellow-300 transition-colors"
+          >
+            INSCREVER
+          </a>
+        </form>
       </div>
     </section>
   );
