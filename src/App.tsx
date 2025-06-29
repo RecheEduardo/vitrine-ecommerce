@@ -20,7 +20,7 @@ function App() {
         <HeroSection />
         <CategoriasCarousel />
         {/* <SliderProdutos title="Produtos relacionados" /> */}
-        {/* <ParceirosSection /> */}
+        <ParceirosSection />
         {/* <SliderProdutos title="Produtos relacionados" /> */}
         {/* <MarcasCarousel /> */}
         {/* <SliderProdutos title="Produtos relacionados" /> */}
