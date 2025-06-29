@@ -21,7 +21,7 @@ export const NavBar = () => {
         <div className="flex items-center gap-8">
           <motion.div
             className="hidden lg:flex items-center font-semibold gap-32"
-            {...fadeInUpItemMotionProps} // opcional: para o título também "entrar"
+            {...fadeInUpItemMotionProps}
           >
             <motion.a
               href="#"

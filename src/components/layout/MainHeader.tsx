@@ -1,18 +1,25 @@
 import { FiSearch } from "react-icons/fi";
 import { PiShoppingCart, PiUserCircle, PiHeart  } from "react-icons/pi";
 
+// animaçoes
+import { motion } from 'framer-motion';
+import { containerMotionProps, popInItemMotionProps, fadeInUpItemMotionProps } from '../../variants/animationVariants';
+
 export const MainHeader = () => {
   return (
     <header className="bg-white shadow-sm">
-      <div className="container mx-auto p-4 flex justify-between items-center border-b border-gray-100">
+      <motion.div 
+        className="container mx-auto p-4 flex justify-between items-center border-b border-gray-100"
+        {...containerMotionProps}
+      >
         
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <motion.div className="flex-shrink-0" {...fadeInUpItemMotionProps}>
           <img src="/siteLogo.png" alt="Econverse Logo" className="h-12" />
-        </div>
+        </motion.div>
 
         {/* Search Bar */}
-        <div className="relative w-full max-w-xl mx-1 hidden md:block">
+        <motion.div className="relative w-full max-w-xl mx-1 hidden md:block" {...fadeInUpItemMotionProps}>
             <input
                 type="text"
                 placeholder="O que você está buscando?"
@@ -23,10 +30,10 @@ export const MainHeader = () => {
             <a className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <FiSearch size={24} className="text-gray-300" />
             </a>
-        </div>
+        </motion.div>
 
         {/* icones de ação */}
-        <div className="flex items-center gap-4 text-gray-300">
+        <motion.div className="flex items-center gap-4 text-gray-300" {...fadeInUpItemMotionProps}>
           
           {/* wishlist */}
           <button className="p-2 rounded-full hover:bg-gray-100
@@ -48,8 +55,8 @@ export const MainHeader = () => {
           >
             <PiShoppingCart size={36}/>
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </header>
   );
 };
