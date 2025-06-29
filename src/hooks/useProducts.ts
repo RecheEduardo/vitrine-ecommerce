@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Produto } from '../types/produto';
 
-// configurando acesso da api via .env em produção
-const API_URL = import.meta.env.VITE_API_URL;
+// configurando acesso de api via CORS com rewrite do vercel em produção
+const API_URL = '/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
 
 export const useProducts = () => {
   
