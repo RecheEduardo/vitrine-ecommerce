@@ -7,6 +7,7 @@ import { CategoriasCarousel } from "./components/sections/CategoriasCarousel"
 import { Newsletter } from "./components/sections/Newsletter"
 import { MarcasCarousel } from "./components/sections/MarcasCarousel"
 import { ParceirosSection } from "./components/sections/ParceirosSection"
+import { SliderProdutos } from "./components/sections/SliderProdutos"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <main className="flex-grow">
         <HeroSection />
         <CategoriasCarousel />
+        <SliderProdutos title="Produtos relacionados" />
         <ParceirosSection />
         <MarcasCarousel />
         <Newsletter />
