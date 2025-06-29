@@ -14,9 +14,9 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <TopBar />
       <MainHeader />
-      <NavBar/>
+      {/* <NavBar/> renderizada condicionalmente no main header */}
 
-      <main className="flex-grow">
+      {/* <main className="flex-grow">
         <HeroSection />
         <CategoriasCarousel />
         <SliderProdutos title="Produtos relacionados" />
@@ -27,7 +27,7 @@ function App() {
         <Newsletter />
       </main>
       
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }

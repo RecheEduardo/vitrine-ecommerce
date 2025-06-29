@@ -1,13 +1,17 @@
-import { FiSearch } from "react-icons/fi";
-import { PiShoppingCart, PiUserCircle, PiHeart  } from "react-icons/pi";
+import { useState } from 'react';
+import { FiSearch, FiMenu, FiX } from 'react-icons/fi';
+import { PiShoppingCart, PiUserCircle, PiHeart } from 'react-icons/pi';
+import { NavBar } from './NavBar';
 
-// animaçoes
+// animações
 import { motion } from 'framer-motion';
 import { containerMotionProps, fadeInUpItemMotionProps } from '../../variants/animationVariants';
 
 export const MainHeader = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
       <motion.div 
         className="container mx-auto p-4 flex justify-between items-center border-b border-gray-100"
         {...containerMotionProps}
@@ -15,11 +19,11 @@ export const MainHeader = () => {
         
         {/* Logo */}
         <motion.div className="flex-shrink-0" {...fadeInUpItemMotionProps}>
-          <img src="/siteLogo.png" alt="Econverse Logo" className="h-12" />
+          <img src="/siteLogo.png" alt="Econverse Logo" className="h-10 md:h-12" />
         </motion.div>
 
-        {/* Search Bar */}
-        <motion.div className="relative w-full max-w-xl mx-1 hidden md:block" {...fadeInUpItemMotionProps}>
+        {/* search Bar para Desktop */}
+        <motion.div className="relative w-full max-w-xl mx-4 hidden md:block" {...fadeInUpItemMotionProps}>
             <input
                 type="text"
                 placeholder="O que você está buscando?"
@@ -27,17 +31,22 @@ export const MainHeader = () => {
                           text-gray-500 placeholder-gray-300 focus:outline-none focus:ring-0
                           focus:drop-shadow-md transition-all duration-300"
             />
-            <a className="absolute inset-y-0 right-0 flex items-center pr-5">
+            <a href="#" className="absolute inset-y-0 right-0 flex items-center pr-5">
                 <FiSearch size={24} className="text-gray-300" />
             </a>
         </motion.div>
 
         {/* icones de ação */}
-        <motion.div className="flex items-center gap-4 text-gray-300" {...fadeInUpItemMotionProps}>
+        <motion.div className="flex items-center gap-2 md:gap-4 text-gray-300" {...fadeInUpItemMotionProps}>
+          
+          {/* Ícone de busca para Mobile */}
+          <button className="p-2 rounded-full hover:bg-gray-100 hover:text-gray-500 md:hidden">
+            <FiSearch size={28} />
+          </button>
           
           {/* wishlist */}
           <button className="p-2 rounded-full hover:bg-gray-100
-           hover:text-gray-500 transition-all duration-100 cursor-pointer"
+           hover:text-gray-500 transition-all duration-100 cursor-pointer hidden sm:block"
           >
             <PiHeart size={36}/>
           </button>
@@ -55,8 +64,23 @@ export const MainHeader = () => {
           >
             <PiShoppingCart size={36}/>
           </button>
+
+          {/* botão de Menu Hambúrguer */}
+          <button
+            className="p-2 rounded-full hover:bg-gray-100 hover:text-gray-500 lg:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+          </button>
         </motion.div>
       </motion.div>
+
+      {/* menu Mobile */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white shadow-lg">
+          <NavBar isMobile={true} />
+        </div>
+      )}
     </header>
   );
 };
