@@ -28,12 +28,15 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   return (
     <section className="py-12">
       <div className="container mx-auto py-4">
-        {/* titulo e menu de categorias... */}
+
+        {/* titulo customizavel do slider */}
         <div className="flex items-center gap-12">
-          <div className="flex-1 h-px bg-gray-200"></div>
-          <span className="text-4xl font-bold text-dark-blue text-center">{title}</span>
-          <div className="flex-1 h-px bg-gray-200"></div>
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <span className="text-4xl font-bold text-dark-blue text-center">{title}</span>
+            <div className="flex-1 h-px bg-gray-200"></div>
         </div>
+
+        {/* menu de categorias de produtos */}
         <div className="flex justify-between gap-6 my-8 px-12 text-lg text-gray-400">
           <a href="#" className="text-primary font-bold border-b-2 border-primary pb-1">Celular</a>
           <a href="#" className="hover:text-primary">Acessórios</a>
@@ -48,16 +51,26 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           <Swiper
             modules={[Navigation]}
             spaceBetween={16}
-            slidesPerView={4}
+            slidesPerView={2}
+
+            // referencia os elementos puxando do hook useRef
             navigation={{ 
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
             }}
+
             onBeforeInit={(swiper) => {  
               // @ts-ignore
               swiper.params.navigation.prevEl = navigationPrevRef.current;
               // @ts-ignore
               swiper.params.navigation.nextEl = navigationNextRef.current;
+            }}
+
+            // define a partir da width da tela quantos elementos vão aparecer
+            breakpoints={{ 
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 4 },
             }}
           >
             {products && products.map((product) => (  // renderiza só se os produtos forem carregados
@@ -68,13 +81,21 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           </Swiper>
 
           {/* setas de navegação */}
-          <button ref={navigationPrevRef} className="absolute top-1/2 -left-15 z-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-primary hover:bg-gray-100">
+          <button ref={navigationPrevRef} 
+            className="absolute top-1/2 -left-15 z-10 -translate-y-1/2 bg-white rounded-full
+            p-2 shadow-md text-primary hover:bg-gray-100"
+          >
             <FaChevronLeft size={24} />
           </button>
-          <button ref={navigationNextRef} className="absolute top-1/2 -right-15 z-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-primary hover:bg-gray-100">
+          
+          <button ref={navigationNextRef} 
+            className="absolute top-1/2 -right-15 z-10 -translate-y-1/2 bg-white rounded-full
+            p-2 shadow-md text-primary hover:bg-gray-100"
+          >
             <FaChevronRight size={24} />
           </button>
         </div>
+
       </div>
     </section>
   );
