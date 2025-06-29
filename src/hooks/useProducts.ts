@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Produto } from '../types/produto';
 
-// usando o caminho do proxy, para o CORS
-// abordagem explicada no arquivo vite.config.ts
-const API_URL = '/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json';
+// configurando acesso da api via .env em produção
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const useProducts = () => {
   
