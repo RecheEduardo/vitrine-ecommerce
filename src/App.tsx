@@ -21,10 +21,13 @@ function App() {
         <CategoriasCarousel />
         <SliderProdutos title="Produtos relacionados" />
         <ParceirosSection />
+        <SliderProdutos title="Produtos relacionados" />
         <MarcasCarousel />
+        <SliderProdutos title="Produtos relacionados" />
         <Newsletter />
-        <Footer />
       </main>
+      
+      <Footer />
     </div>
   )
 }
