@@ -16,18 +16,18 @@ function App() {
       <MainHeader />
       {/* <NavBar/> renderizada condicionalmente no main header */}
 
-      {/* <main className="flex-grow">
+      <main className="flex-grow">
         <HeroSection />
-        <CategoriasCarousel />
+        {/* <CategoriasCarousel />
         <SliderProdutos title="Produtos relacionados" />
         <ParceirosSection />
         <SliderProdutos title="Produtos relacionados" />
         <MarcasCarousel />
         <SliderProdutos title="Produtos relacionados" />
-        <Newsletter />
+        <Newsletter /> */}
       </main>
       
-      <Footer /> */}
+      {/* <Footer /> */}
     </div>
   )
 }
