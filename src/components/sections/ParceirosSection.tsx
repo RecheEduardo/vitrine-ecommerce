@@ -35,7 +35,7 @@ const ParceiroCard = () => (
 
 export const ParceirosSection = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-6 md:py-12 bg-white">
       <div className="container mx-auto px-2">
         {/* utilizando grid para facilitar a responsividade */}
         <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4" {...containerMotionProps}>

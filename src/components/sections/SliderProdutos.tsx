@@ -30,7 +30,7 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   if (error) return <div className="text-center py-12 text-red-500">Erro ao carregar produtos: {error}</div>;
 
   return (
-    <motion.section className="py-8 md:py-12" {...containerMotionProps}>
+    <motion.section className="py-6 md:py-12" {...containerMotionProps}>
       <div className="container mx-auto px-2 md:px-0">
 
         {/* titulo customizavel do slider */}

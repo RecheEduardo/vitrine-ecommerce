@@ -14,7 +14,7 @@ const IconeMarca = () => ( // componente iterado no carrossel
 
 export const MarcasCarousel = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-6 md:py-12 bg-white">
       <motion.div className="container mx-auto px-4" {...containerMotionProps}>
 
         <motion.h2 

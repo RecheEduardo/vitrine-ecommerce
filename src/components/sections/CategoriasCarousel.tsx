@@ -50,7 +50,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ nome, icone, ativo }) => (
 
 export const CategoriasCarousel = () => {
   return (
-      <section className="py-12 bg-white">
+      <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-2 md:px-4">
               {/* overflow-x-auto no container para permitir rolagem em telas pequenas */}
               {/* em telas 'lg', o conteudo fica centralizado */}
