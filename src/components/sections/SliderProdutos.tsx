@@ -1,3 +1,7 @@
+// elementos da lib swiper para sliders modernos
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
   return (
     <section className="py-12">
@@ -20,7 +24,20 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           <a href="#" className="hover:text-primary">Ver todos</a>
         </div>
         
-        {/* slider sera implementado aqui */}
+        {/* slider de produtos iterando sobre placeholders */}
+        <div className="relative">
+          <Swiper
+            spaceBetween={16}
+            slidesPerView={4} // valor fixo (por enquanto)
+          >
+            {[...Array(8)].map((_, i) => (
+              <SwiperSlide key={i} className="h-auto pb-6 px-3">
+                {/* placeholder do card de produto */}
+                <div className="bg-white rounded-lg p-4 h-96 drop-shadow-xl" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );
