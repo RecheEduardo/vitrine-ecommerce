@@ -3,7 +3,7 @@ import { PiShoppingCart, PiUserCircle, PiHeart  } from "react-icons/pi";
 
 // animaçoes
 import { motion } from 'framer-motion';
-import { containerMotionProps, popInItemMotionProps, fadeInUpItemMotionProps } from '../../variants/animationVariants';
+import { containerMotionProps, fadeInUpItemMotionProps } from '../../variants/animationVariants';
 
 export const MainHeader = () => {
   return (
