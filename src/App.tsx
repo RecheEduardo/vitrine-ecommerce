@@ -24,7 +24,7 @@ function App() {
         {/* <SliderProdutos title="Produtos relacionados" /> */}
         <MarcasCarousel />
         {/* <SliderProdutos title="Produtos relacionados" /> */}
-        {/* <Newsletter /> */}
+        <Newsletter />
       </main>
       
       {/* <Footer /> */}
