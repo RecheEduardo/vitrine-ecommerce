@@ -5,6 +5,7 @@ import { Footer } from "./components/layout/Footer"
 import { HeroSection } from "./components/sections/HeroSection"
 import { CategoriasCarousel } from "./components/sections/CategoriasCarousel"
 import { Newsletter } from "./components/sections/Newsletter"
+import { MarcasCarousel } from "./components/sections/MarcasCarousel"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <NavBar/>
       <HeroSection />
       <CategoriasCarousel />
+      <MarcasCarousel />
       <Newsletter />
       <Footer />
     </div>
