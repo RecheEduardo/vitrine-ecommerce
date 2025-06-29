@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { containerMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
 
 const TextoDestacado: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="font-bold text-dark-blue">{children}</span>
+  <span className="font-bold text-tertiary">{children}</span>
 );
 
 export const TopBar: React.FC = () => (

@@ -37,12 +37,12 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ nome, icone, ativo }) => (
     {/* tamanho dos ícones ajustado para telas menores */}
     <div
       className={`w-28 h-28 md:w-36 md:h-36 flex items-center justify-center rounded-lg 
-      shadow-lg ${ativo ? 'text-dark-blue' : 'text-gray-400'}`}
+      shadow-lg ${ativo ? 'text-tertiary' : 'text-gray-400'}`}
     >
       {icone}
     </div>
 
-    <span className={`text-sm text-center ${ativo ? 'text-dark-blue font-extrabold' : 'text-gray-400 font-medium'}`}>
+    <span className={`text-sm text-center ${ativo ? 'text-tertiary font-extrabold' : 'text-gray-400 font-medium'}`}>
       {nome}
     </span>
   </div>
