@@ -1,32 +1,28 @@
 import { PiCreditCardBold, PiShieldCheckBold, PiTruckBold } from "react-icons/pi";
+import { motion } from 'framer-motion';
+import { containerMotionProps, itemMotionProps } from '../../variants/animationVariants';
 
 const TextoDestacado: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <span className="font-bold text-dark-blue">{children}</span>
 );
 
-export const TopBar = () => {
-  return (
-    <div className="container mx-auto hidden md:flex bg-white border-b 
-      border-b-gray-100 py-2 justify-center items-center"
-    >
-      <div className="flex items-center gap-36">
+export const TopBar: React.FC = () => (
+  <motion.div
+    className="container mx-auto hidden md:flex bg-white border-b border-b-gray-100 py-2 justify-center items-center"
+    {...containerMotionProps}
+  >
+    <div className="flex items-center gap-36">
+      <motion.span className="text-md text-gray-300 flex items-center gap-2" {...itemMotionProps}>
+        <PiShieldCheckBold size={24} /> Compra <TextoDestacado>100% segura</TextoDestacado>
+      </motion.span>
 
-        <span className="text-md text-gray-300 flex items-center gap-2">
-          <PiShieldCheckBold  size={24}/> 
-          Compra <TextoDestacado>100% segura</TextoDestacado>
-        </span>
+      <motion.span className="text-md text-gray-300 flex items-center gap-2" {...itemMotionProps}>
+        <PiTruckBold size={24} /> <TextoDestacado>Frete grátis</TextoDestacado> acima de R$ 200
+      </motion.span>
 
-        <span className="text-md text-gray-300 flex items-center gap-2">
-          <PiTruckBold size={24}/> 
-          <TextoDestacado>Frete grátis</TextoDestacado> acima de R$ 200
-        </span>
-
-        <span className="text-md text-gray-300 flex items-center gap-2">
-          <PiCreditCardBold size={24}/> 
-          <TextoDestacado>Parcele</TextoDestacado> suas compras
-        </span>
-        
-      </div>
+      <motion.span className="text-md text-gray-300 flex items-center gap-2" {...itemMotionProps}>
+        <PiCreditCardBold size={24} /> <TextoDestacado>Parcele</TextoDestacado> suas compras
+      </motion.span>
     </div>
-  );
-};
+  </motion.div>
+);
