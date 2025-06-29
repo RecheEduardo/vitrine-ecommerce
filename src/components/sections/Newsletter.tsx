@@ -1,16 +1,26 @@
+// animação dinamica
+import { motion } from 'framer-motion';
+import { containerMotionProps, fadeInUpItemMotionProps } from '../../variants/animationVariants';
+
 export const Newsletter = () => {
     return (
       <section className="bg-primary py-12">
-        <div className="container flex justify-between mx-auto py-2 items-center text-gray-100">
+        <motion.div 
+          className="container flex justify-between mx-auto py-2 items-center text-gray-100"
+          {...containerMotionProps}
+        >
           
-          <div>
+          <motion.div {...fadeInUpItemMotionProps}>
             <h2 className="text-3xl font-bold">Inscreva-se na nossa newsletter</h2>
             <p className="mt-2 text-white/80 max-w-2xl">Assine a nossa newsletter e receba as
              novidades e conteúdos exclusivos da Econverse.
             </p>
-          </div>
+          </motion.div>
           
-          <form className="max-w-2xl flex flex-col md:flex-col gap-4 items-start">
+          <motion.form 
+            className="max-w-2xl flex flex-col md:flex-col gap-4 items-start"
+            {...fadeInUpItemMotionProps}
+          >
             <div className="flex gap-4">
               {/* nome */}
               <input
@@ -39,8 +49,9 @@ export const Newsletter = () => {
               <input type="checkbox" value="" className="ml-1 w-4 h-4" required/>
               <label className="ms-2 text-sm text-white">Aceito os termos e condições</label>
             </div>
-          </form>
-        </div>
+          </motion.form>
+
+        </motion.div>
       </section>
     );
   };
