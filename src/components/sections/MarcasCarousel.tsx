@@ -1,6 +1,6 @@
 // animação dinamica
 import { motion } from 'framer-motion';
-import { containerMotionProps, fadeInUpItemMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
+import { containerMotionProps, popInItemMotionProps } from '../../variants/animationVariants';
 
 const IconeMarca = () => ( // componente iterado no carrossel 
   <div className="w-64 h-64 flex-shrink-0 bg-white border-0 rounded-full 
