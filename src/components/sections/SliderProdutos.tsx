@@ -2,10 +2,11 @@ import { useRef } from 'react';
 
 // elementos da lib swiper para sliders modernos
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules'; // importando o modulo de navegacao
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// icones dos chevron's (setas) dos sliders
+// icones
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
@@ -31,7 +32,22 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
         </div>
 
         <div className="relative">
-          <Swiper spaceBetween={16} slidesPerView={4}>
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={16}
+            slidesPerView={4}
+            // referencia os elementos puxando do hook useRef
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            onBeforeInit={(swiper) => {  
+              // @ts-ignore
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              // @ts-ignore
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+            }}
+          >
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i} className="h-auto pb-6 px-3">
                 <div className="bg-white rounded-lg p-4 h-96 drop-shadow-xl" />
@@ -40,17 +56,10 @@ export const SliderProdutos: React.FC<{title: string}> = ({ title }) => {
           </Swiper>
 
           {/* setas de navegação */}
-          <button ref={navigationPrevRef} 
-            className="absolute top-1/2 -left-15 z-10 -translate-y-1/2 bg-white rounded-full
-            p-2 shadow-md text-primary hover:bg-gray-100"
-          >
+          <button ref={navigationPrevRef} className="absolute top-1/2 -left-15 z-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-primary hover:bg-gray-100">
             <FaChevronLeft size={24} />
           </button>
-          
-          <button ref={navigationNextRef} 
-            className="absolute top-1/2 -right-15 z-10 -translate-y-1/2 bg-white rounded-full
-            p-2 shadow-md text-primary hover:bg-gray-100"
-          >
+          <button ref={navigationNextRef} className="absolute top-1/2 -right-15 z-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md text-primary hover:bg-gray-100">
             <FaChevronRight size={24} />
           </button>
         </div>
