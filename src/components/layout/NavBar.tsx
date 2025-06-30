@@ -60,7 +60,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isMobile = false }) => {
         <div className="flex items-center gap-8">
           <motion.div
             className="flex items-center font-semibold gap-8 2xl:gap-32"
-            {...popInItemMotionProps}
+            {...fadeInUpItemMotionProps}
           >
             <motion.a
               href="#"
