@@ -21,6 +21,7 @@ function App() {
         <SliderProdutos title="Produtos relacionados" />
         <ParceirosSection />
         <SliderProdutos title="Produtos relacionados" />
+        <ParceirosSection />
         <MarcasCarousel />
         <SliderProdutos title="Produtos relacionados" />
         <Newsletter />
