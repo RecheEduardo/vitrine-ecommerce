@@ -47,7 +47,10 @@ export const ModalCompra: React.FC<ModalCompraProps> = ({ product, onClose }) =>
           exit="exit"
         >
           {/* botao de fechar o modal */}
-          <button onClick={onClose}className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors" >
+          <button onClick={onClose} className="absolute top-4 right-4 cursor-pointer
+           text-gray-400 hover:scale-125 
+           transition-all duration-250"
+          >
             <FiX size={28} />
           </button>
 
