@@ -2,9 +2,10 @@ import type { Produto } from '../../types/produto';
 
 interface CardProdutoProps {
   product: Produto; // prop desse componente PRECISA ser um produto
+  onComprarClick: (product: Produto) => void; // funcao para abrir o modal (logica completa no SliderProdutos)
 }
 
-export const CardProduto: React.FC<CardProdutoProps> = ({ product }) => {
+export const CardProduto: React.FC<CardProdutoProps> = ({ product, onComprarClick }) => {
   // simulando um desconto para os produtos do card
   const originalPrice = product.price * 1.25;  
 
@@ -37,7 +38,11 @@ export const CardProduto: React.FC<CardProdutoProps> = ({ product }) => {
         </div>
       </div>
 
-      <button className="mt-4 w-full bg-dark-blue text-white font-bold py-2 rounded-lg
+      <button 
+        type="button" 
+        // servindo na prop para definir qual produto será expandido no modal
+        onClick={() => onComprarClick(product)} 
+        className="mt-4 w-full bg-dark-blue text-white font-bold py-2 rounded-lg
         hover:bg-blue-900 transition-colors hover:cursor-pointer"
       >
         COMPRAR
