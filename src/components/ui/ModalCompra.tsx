@@ -1,15 +1,21 @@
 import { useState } from 'react';
+
 import { FiX } from 'react-icons/fi';
+
+// animações dinamicas
 import { motion, AnimatePresence } from 'framer-motion';
 import { overlayVariants, popInVariants } from '../../variants/animationVariants';
 
-// props para close (ainda nao usado)
+// props do produto pro modal
+import type { Produto } from '../../types/produto';
+
+// definindo as props que o modal vai receber
 interface ModalCompraProps {
+  product: Produto;
   onClose: () => void;
 }
 
-// o componente agora tem estado e animacao
-export const ModalCompra: React.FC<ModalCompraProps> = ({ onClose }) => {
+export const ModalCompra: React.FC<ModalCompraProps> = ({ product, onClose }) => {
   // estado para controlar a quantidade de produtos no modal
   const [quantity, setQuantity] = useState(1);
 
@@ -33,38 +39,37 @@ export const ModalCompra: React.FC<ModalCompraProps> = ({ onClose }) => {
 
         {/* conteudo do modal */}
         <motion.div
-          className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl p-6 
-          md:p-8 z-10 flex flex-col md:flex-row gap-8"
+          className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl 
+          p-6 md:p-8 z-10 flex flex-col md:flex-row gap-8"
           variants={popInVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
           {/* botao de fechar o modal */}
-          <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-          >
+          <button onClick={onClose}className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors" >
             <FiX size={28} />
           </button>
 
           {/* coluna da imagem do produto */}
           <div className="w-full md:w-1/2 flex items-center justify-center">
-            {/* placeholder */}
-            <div className="w-full h-80 bg-gray-200 rounded" />
+            <img src={product.photo} alt={product.productName} className="max-h-80 object-contain" />
           </div>
 
-          {/* coluna das informaçoes e ações do produto */}
+          {/* coluna das informacoes e acoes do produto */}
           <div className="w-full md:w-1/2 flex flex-col justify-center">
             
             <h2 className="text-2xl md:text-3xl font-light text-gray-500 tracking-widest mb-4">
-              NOME DO PRODUTO
+              {product.productName}
             </h2>
             
             <p className="text-4xl font-bold text-gray-500 mb-4">
-              R$ 1.499,90
+              {/* padrão brasileiro de valor R$ */}
+              R$ {product.price.toFixed(2).replace('.', ',')}
             </p>
             
             <p className="text-gray-400 mb-4">
-              many deskop publishing packages and web page editors now use many desktop publishing.
+              {product.descriptionShort}
             </p>
             
             <a href="#" className="text-dark-blue font-bold text-sm mb-6 hover:underline">
@@ -86,7 +91,7 @@ export const ModalCompra: React.FC<ModalCompraProps> = ({ onClose }) => {
               <button className="w-full bg-secondary text-black font-bold py-3 rounded-lg hover:bg-yellow-300 transition-colors">
                 COMPRAR
               </button>
-              
+           
             </div>
           </div>
         </motion.div>
